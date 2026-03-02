@@ -12,7 +12,7 @@ Welcome to my Machine Learning Projects portfolio! This repository contains a co
 - **Techniques**: Regression Analysis, Feature Engineering, Ensemble Methods, Cross-Validation
 - **Algorithms**: Random Forest, Linear Regression, KNN, Decision Trees, Gradient Boosting
 - **Domain**: Education Analytics
-- **Key Results**: Achieved 92% accuracy in predicting student performance
+- **Key Results**: Achieved 63% accuracy in predicting student performance
 
 #### 🏠 [Project 2: Housing Price Prediction](housing-price-prediction/)
 **Real estate price forecasting using ensemble methods**
