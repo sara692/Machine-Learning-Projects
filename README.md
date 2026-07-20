@@ -22,6 +22,14 @@ Welcome to my Machine Learning Projects portfolio! This repository contains a co
 - **Key Results**: R² Score of 0.9234 with optimized Random Forest model
 - **Features**: Location clustering, Price tier analysis, Comprehensive EDA
 
+#### 🩺 [Project 3: Breast Cancer Classification](Breast_Cancer_Classification/)
+**Comparative study of classification algorithms for tumor diagnosis**
+- **Techniques**: Exploratory Data Analysis, Feature Scaling, Hyperparameter Tuning (GridSearchCV), Cross-Validation, Model Comparison
+- **Algorithms**: Logistic Regression, K-Nearest Neighbors, Support Vector Machine (RBF kernel), Decision Tree, Random Forest, Gradient Boosting, Gaussian Naive Bayes
+- **Domain**: Medical / Healthcare Analytics
+- **Key Results**: Benchmarked 7 classifiers on the Wisconsin Breast Cancer diagnostic dataset using accuracy, precision, recall, and F1-score, with confusion matrices and 5-fold cross-validation for robustness
+- **Features**: In-depth EDA (distributions, outliers, correlation heatmap), per-model theory explaining each algorithm's error-minimization strategy (gradient descent, SMO, greedy splitting, bagging, boosting, closed-form MLE), and an interview cheat-sheet summarizing all models
+
 ### 📂 Additional Projects
 *(More projects to be added as portfolio expands)*
 
