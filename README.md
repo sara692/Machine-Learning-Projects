@@ -30,6 +30,14 @@ Welcome to my Machine Learning Projects portfolio! This repository contains a co
 - **Key Results**: Benchmarked 7 classifiers on the Wisconsin Breast Cancer diagnostic dataset using accuracy, precision, recall, and F1-score, with confusion matrices and 5-fold cross-validation for robustness
 - **Features**: In-depth EDA (distributions, outliers, correlation heatmap), per-model theory explaining each algorithm's error-minimization strategy (gradient descent, SMO, greedy splitting, bagging, boosting, closed-form MLE), and an interview cheat-sheet summarizing all models
 
+#### 🩸 [Project 4: Diabetes Progression Prediction](Diabetes_Regression/)
+**Comparative study of regression algorithms for disease progression forecasting**
+- **Techniques**: Exploratory Data Analysis, Feature Scaling, Hyperparameter Tuning (GridSearchCV), Cross-Validation, Model Comparison, Regularization (L1/L2)
+- **Algorithms**: Linear Regression, Ridge Regression, Lasso Regression, K-Nearest Neighbors, Support Vector Regression (RBF kernel), Decision Tree, Random Forest, Gradient Boosting
+- **Domain**: Medical / Healthcare Analytics
+- **Key Results**: Benchmarked 8 regressors on the scikit-learn Diabetes dataset using MAE, MSE, RMSE, and R², with residual diagnostics and 5-fold cross-validation for robustness
+- **Features**: In-depth EDA (target distribution, feature-vs-target relationships, correlation heatmap), per-model theory explaining each algorithm's error-minimization strategy (closed-form solutions, coordinate descent, SMO, greedy splitting, gradient descent in function space), and an interview cheat-sheet summarizing all models
+
 ### 📂 Additional Projects
 *(More projects to be added as portfolio expands)*
 
