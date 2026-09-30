@@ -14,7 +14,7 @@ Welcome to my Machine Learning Projects portfolio! This repository contains a co
 - **Domain**: Education Analytics
 - **Key Results**: Achieved 63% accuracy in predicting student performance
 
-#### 🏠 [Project 2: Housing Price Prediction](housing-price-prediction/)
+#### 🏠 [Project 2: Housing Price Prediction](housing_price_prediction/)
 **Real estate price forecasting using ensemble methods**
 - **Techniques**: Feature Engineering, Outlier Detection, Ensemble Learning, Hyperparameter Tuning
 - **Algorithms**: Random Forest, Stacking Regressor, Decision Trees, K-Means Clustering
