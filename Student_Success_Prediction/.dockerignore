@@ -1,0 +1,14 @@
+.venv/
+.git/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.pyc
+notebooks/
+tests/
+data/*.csv
+artifacts/*.pkl
+mlruns/
+mlartifacts/
+.env
+README.md

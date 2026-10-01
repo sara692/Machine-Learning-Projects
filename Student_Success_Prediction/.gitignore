@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+.venv/
+.uv/
+uv.lock.bak
+
+# artifacts / data (generated, may be large or private)
+artifacts/*.pkl
+data/*.csv
+
+# MLflow local tracking store (experiments/runs/registered models)
+mlruns/
+mlartifacts/
+mlflow-data/
+
+# testing / tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# env
+.env
+
+# IDE
+.vscode/
+.idea/

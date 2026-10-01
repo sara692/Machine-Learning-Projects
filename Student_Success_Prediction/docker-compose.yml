@@ -1,0 +1,57 @@
+services:
+  mlflow:
+    image: python:3.12-slim
+    container_name: student-success-mlflow
+    command: >
+      bash -c "pip install --no-cache-dir mlflow==3.16.0 &&
+               mlflow server --host 0.0.0.0 --port 5000
+               --backend-store-uri sqlite:///mlflow/mlflow.db
+               --default-artifact-root /mlflow/artifacts"
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlflow-data:/mlflow
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: student-success-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./artifacts:/app/artifacts
+      - ./data:/app/data
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      # Point training/serving at the shared MLflow server instead of a local
+      # file store, so runs/registered models are visible at localhost:5000.
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      mlflow:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.gradio
+    container_name: student-success-ui
+    ports:
+      - "7860:7860"
+    environment:
+      - API_BASE_URL=http://api:8000
+      - GRADIO_PORT=7860
+    depends_on:
+      api:
+        condition: service_healthy

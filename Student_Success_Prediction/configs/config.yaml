@@ -1,0 +1,39 @@
+# Central configuration for the Student Success Prediction service.
+# Overridden at runtime by environment variables where noted in config.py.
+
+raw_data_filename: bi.csv
+model_filename: rf_student_model.pkl
+scaler_filename: scaler.pkl
+encoders_filename: encoding_maps.pkl
+
+feature_order:
+  - Gender
+  - Residence
+  - Entry_Exam
+  - Study_Hours
+
+gender_categories:
+  - Female
+  - Male
+
+residence_categories:
+  - BI Residence
+  - Home
+  - Other
+
+test_size: 0.2
+random_state: 42
+n_estimators: 50
+cv_folds: 3
+
+# MLflow experiment tracking + model registry
+mlflow_tracking_uri: "sqlite:///mlflow.db"
+mlflow_experiment_name: "student-success-prediction"
+registered_model_name: "student_success_regressor"
+model_source: "local" # "local" or "mlflow"
+mlflow_model_stage_or_alias: "champion"
+
+api_host: "0.0.0.0"
+api_port: 8000
+gradio_port: 7860
+api_base_url: "http://localhost:8000"
