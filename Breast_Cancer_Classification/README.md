@@ -1,5 +1,4 @@
-# 🩺 Breast Cancer Classification — Comparative ML Study
-
+# 🩺 Breast Cancer Classification(Notebook)
 A clean, end-to-end machine learning notebook that predicts whether a breast
 tumor is **malignant** or **benign** using the Wisconsin Breast Cancer diagnostic
 dataset, while comparing **7 classification algorithms** on the same data.
