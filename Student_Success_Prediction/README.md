@@ -1,4 +1,4 @@
-# 🎓 Student Success Prediction
+# 🎓 Student Success Prediction(MLOps)
 
 A productionized, MVC-structured rewrite of `ML_for_Student_Success_Prediction.ipynb`.
 Predicts a student's **Total Percentage** score (average of Python + DB exam scores)
