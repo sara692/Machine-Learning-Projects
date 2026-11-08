@@ -85,6 +85,22 @@ Python, pandas, NumPy, scikit-learn (`GridSearchCV`, `cross_val_score`), matplot
 - [ ] Add prediction intervals to quantify uncertainty.
 - [ ] Validate on external patient data before any real-world use. This is an educational benchmark, not a clinical tool.
 
-## Author and licence
+## 📄 License
+This portfolio is available for educational and demonstration purposes. Individual projects may have specific licenses based on data sources and requirements. Please check individual project directories for specific licensing information.
 
-Sara Ibrahim · [LinkedIn](https://www.linkedin.com/in/sara-ibrahim-omran) · MIT (see `LICENSE` in the repo root)
+## 👨‍💻 Author
+**Sara Ibrahim**  
+*Data Scientist | Machine Learning / AI Engineer*
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/sara-ibrahim-omran)  
+[![Email](https://img.shields.io/badge/Email-Contact%20Me-red?style=flat&logo=gmail)](mailto:Saraomran433@gmail.com)
+
+---
+
+### 🌟 **Let's Connect!**
+I'm passionate about solving real-world problems with data and machine learning. Feel free to reach out for:
+- 💼 Job opportunities and collaborations
+- 📚 Technical discussions and knowledge sharing
+- 🚀 Project ideas and innovative solutions
+
+**⭐ If you find any project interesting or helpful, please give it a star!**
