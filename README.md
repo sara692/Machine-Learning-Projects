@@ -7,14 +7,14 @@ Welcome to my Machine Learning Projects portfolio! This repository contains a co
 
 ### 🏆 Featured Projects
 
-#### 🔍 [Project 1: Student Success ML Model](student-success-ml/)
+#### 🔍 [Project 1: Student Success ML Model(MLOps)](Student_Success_Prediction/)
 **Predictive modeling of student academic performance**
 - **Techniques**: Regression Analysis, Feature Engineering, Ensemble Methods, Cross-Validation
 - **Algorithms**: Random Forest, Linear Regression, KNN, Decision Trees, Gradient Boosting
 - **Domain**: Education Analytics
 - **Key Results**: Achieved 63% accuracy in predicting student performance
 
-#### 🏠 [Project 2: Housing Price Prediction](House_Price_Prediction/)
+#### 🏠 [Project 2: Housing Price Prediction(MLOps)](House_Price_Prediction/)
 **Real estate price forecasting using ensemble methods**
 - **Techniques**: Feature Engineering, Outlier Detection, Ensemble Learning, Hyperparameter Tuning
 - **Algorithms**: Random Forest, Stacking Regressor, Decision Trees, K-Means Clustering
@@ -22,7 +22,7 @@ Welcome to my Machine Learning Projects portfolio! This repository contains a co
 - **Key Results**: R² Score of 0.9234 with optimized Random Forest model
 - **Features**: Location clustering, Price tier analysis, Comprehensive EDA
 
-#### 🩺 [Project 3: Breast Cancer Classification](Breast_Cancer_Classification/)
+#### 🩺 [Project 3: Breast Cancer Classification(Notebook)](Breast_Cancer_Classification/)
 **Comparative study of classification algorithms for tumor diagnosis**
 - **Techniques**: Exploratory Data Analysis, Feature Scaling, Hyperparameter Tuning (GridSearchCV), Cross-Validation, Model Comparison
 - **Algorithms**: Logistic Regression, K-Nearest Neighbors, Support Vector Machine (RBF kernel), Decision Tree, Random Forest, Gradient Boosting, Gaussian Naive Bayes
@@ -30,7 +30,7 @@ Welcome to my Machine Learning Projects portfolio! This repository contains a co
 - **Key Results**: Benchmarked 7 classifiers on the Wisconsin Breast Cancer diagnostic dataset using accuracy, precision, recall, and F1-score, with confusion matrices and 5-fold cross-validation for robustness
 - **Features**: In-depth EDA (distributions, outliers, correlation heatmap), per-model theory explaining each algorithm's error-minimization strategy (gradient descent, SMO, greedy splitting, bagging, boosting, closed-form MLE), and an interview cheat-sheet summarizing all models
 
-#### 🩸 [Project 4: Diabetes Progression Prediction](Diabetes_Regression/)
+#### 🩸 [Project 4: Diabetes Progression Prediction(Notebook)](Diabetes_Regression/)
 **Comparative study of regression algorithms for disease progression forecasting**
 - **Techniques**: Exploratory Data Analysis, Feature Scaling, Hyperparameter Tuning (GridSearchCV), Cross-Validation, Model Comparison, Regularization (L1/L2)
 - **Algorithms**: Linear Regression, Ridge Regression, Lasso Regression, K-Nearest Neighbors, Support Vector Regression (RBF kernel), Decision Tree, Random Forest, Gradient Boosting
