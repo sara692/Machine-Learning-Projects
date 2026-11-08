@@ -192,9 +192,26 @@ run `docker compose exec api uv run train-model` after `docker compose up`.
 - `load_raw_data()` tries `utf-8`, then `cp1252`, then `latin-1` when reading
   `bi.csv` — real-world exports (e.g. from Excel on Windows) are often not
   UTF-8, and the original notebook's hardcoded `latin-1` wasn't robust to that.
+  
+## 📄 License
 
-  ## 👤 Author
+This project is released under the MIT License — feel free to use it for
+learning or as a portfolio reference.
 
-**<Your Name>**
-[LinkedIn](https://www.linkedin.com/in/sara-ibrahim-omran) · [GitHub](https://github.com/sara692) . 
-[Gmail](saraomran433@gmail.com)
+## 👨‍💻 Author
+
+**Sara Ibrahim**  
+*Data Scientist | Machine Learning / AI Engineer*
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/sara-ibrahim-omran)  
+[![Email](https://img.shields.io/badge/Email-Contact%20Me-red?style=flat&logo=gmail)](mailto:Saraomran433@gmail.com)
+
+### 🌟 Let's Connect!
+
+I'm passionate about solving real-world problems with data, machine learning, and AI. Feel free to reach out for:
+
+- 💼 Job opportunities and collaborations
+- 📚 Technical discussions and knowledge sharing
+- 🚀 Project ideas and innovative solutions
+
+**⭐ If you find this project helpful, please give the repo a star!**
