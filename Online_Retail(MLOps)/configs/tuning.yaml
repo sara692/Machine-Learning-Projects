@@ -1,0 +1,41 @@
+data:
+  path: data/features/rfm.parquet
+  features: [recency, frequency, monetary]
+  log_transform: true          # log1p before scaling (RFM is heavily skewed)
+
+mlflow:
+  tracking_uri: http://localhost:5000
+  experiment: customer-segmentation-tuning
+  registered_model: customer-segmentation
+  champion_alias: champion
+
+evaluation:
+  silhouette_sample_size: 10000   # silhouette is O(n^2); sample for speed
+  selection_metric: silhouette    # higher is better
+  min_clusters: 2
+  max_clusters: 12
+  min_cluster_share: 0.02         # reject solutions with a cluster < 2% of customers
+  max_noise_share: 0.10           # DBSCAN: reject if > 10% flagged as noise
+  random_state: 42
+
+# Grids are exhaustive; set max_trials_per_algo to randomly sample if too big
+max_trials_per_algo: 60
+
+search_space:
+  kmeans:
+    n_clusters: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+    n_init: [10, 20]
+    init: [k-means++, random]
+  gmm:
+    n_components: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+    covariance_type: [full, tied, diag, spherical]
+  birch:
+    n_clusters: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+    threshold: [0.1, 0.3, 0.5, 1.0]
+    branching_factor: [50]
+  agglomerative:
+    n_clusters: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+    linkage: [ward, complete, average]
+  dbscan:
+    eps: [0.2, 0.3, 0.4, 0.5, 0.7, 1.0]
+    min_samples: [5, 10, 20, 50]

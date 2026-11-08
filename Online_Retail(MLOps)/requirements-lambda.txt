@@ -1,0 +1,6 @@
+# Runtime dependencies of the API image used on AWS Lambda.
+# The model libraries (scikit-learn, numpy, pandas, scipy) are NOT listed here: they are pinned to the exact
+# versions used for training in deploy/model/requirements-model.txt (written by scripts/export_champion.py).
+fastapi>=0.110
+uvicorn>=0.29
+prometheus-client>=0.20

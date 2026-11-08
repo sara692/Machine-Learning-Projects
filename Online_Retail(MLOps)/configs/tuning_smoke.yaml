@@ -1,0 +1,41 @@
+# Small, fast config used by CI and quick local checks (sqlite store, tiny grids)
+data:
+  path: data/features/rfm.parquet
+  features: [recency, frequency, monetary]
+  log_transform: true
+
+mlflow:
+  tracking_uri: sqlite:///mlflow_smoke.db
+  experiment: customer-segmentation-smoke
+  registered_model: customer-segmentation
+  champion_alias: champion
+
+evaluation:
+  silhouette_sample_size: 5000
+  selection_metric: silhouette
+  min_clusters: 2
+  max_clusters: 12
+  min_cluster_share: 0.02
+  max_noise_share: 0.10
+  random_state: 42
+
+max_trials_per_algo: 6
+
+search_space:
+  kmeans:
+    n_clusters: [3, 4, 5]
+    n_init: [10]
+    init: [k-means++]
+  gmm:
+    n_components: [3, 4]
+    covariance_type: [full, diag]
+  birch:
+    n_clusters: [3, 4]
+    threshold: [0.5]
+    branching_factor: [50]
+  agglomerative:
+    n_clusters: [3, 4]
+    linkage: [ward]
+  dbscan:
+    eps: [0.3, 0.5]
+    min_samples: [10]

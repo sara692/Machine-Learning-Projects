@@ -1,0 +1,20 @@
+# Streamlit UI image (runs on ECS Express Mode / Fargate, or locally).
+# Build from the project root:
+#   docker build --platform linux/amd64 --provenance=false --sbom=false -f docker/Dockerfile.ui -t segmentation-ui .
+FROM public.ecr.aws/docker/library/python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    STREAMLIT_SERVER_HEADLESS=true \
+    STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+
+WORKDIR /app
+COPY requirements-ui.txt .
+RUN pip install --no-cache-dir -r requirements-ui.txt
+COPY ui ./ui
+
+EXPOSE 8501
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
+  CMD python -c "import urllib.request as u; u.urlopen('http://localhost:8501/_stcore/health', timeout=3)"
+
+CMD ["streamlit", "run", "ui/streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]

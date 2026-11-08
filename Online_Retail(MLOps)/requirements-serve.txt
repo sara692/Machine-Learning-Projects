@@ -1,0 +1,11 @@
+# Minimal dependencies for the API container.
+# Keep scikit-learn / pandas / numpy / mlflow versions the same as the ones used for training
+# (check with `pip freeze`), otherwise loading the registered model can fail.
+pandas>=2.2
+numpy>=1.26
+scipy>=1.11
+scikit-learn>=1.5
+mlflow>=3.0,<4
+fastapi>=0.110
+uvicorn>=0.29
+prometheus-client>=0.20

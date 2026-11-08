@@ -1,0 +1,12 @@
+prepare:
+  input: data/raw/online_retail_II.csv
+  output: data/processed/clean.parquet
+  min_quantity: 1          # drop returns / negative quantities
+  min_price: 0.01          # drop free items and price adjustments
+  drop_cancelled: true     # drop invoices starting with "C"
+  drop_duplicates: true    # drop exact duplicate rows
+
+features:
+  input: data/processed/clean.parquet
+  output: data/features/rfm.parquet
+  snapshot_date: auto      # "auto" = day after the last invoice, or e.g. "2011-12-10"

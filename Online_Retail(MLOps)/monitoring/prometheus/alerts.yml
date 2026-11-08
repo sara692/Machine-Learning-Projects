@@ -1,0 +1,53 @@
+groups:
+  - name: segmentation-api
+    rules:
+      - alert: ApiDown
+        expr: up{job="segmentation-api"} == 0
+        for: 2m
+        labels: {severity: critical}
+        annotations:
+          summary: "Segmentation API is not reachable"
+
+      - alert: ModelNotLoaded
+        expr: seg_model_version == 0
+        for: 5m
+        labels: {severity: critical}
+        annotations:
+          summary: "API has no champion model loaded (run tune.py, then POST /reload)"
+
+      - alert: HighErrorRate
+        expr: rate(seg_errors_total[5m]) / clamp_min(rate(seg_requests_total[5m]), 1e-9) > 0.05
+        for: 5m
+        labels: {severity: critical}
+        annotations:
+          summary: "More than 5% of prediction requests are failing"
+
+      - alert: HighLatencyP95
+        expr: histogram_quantile(0.95, sum by (le) (rate(seg_latency_seconds_bucket[5m]))) > 0.3
+        for: 10m
+        labels: {severity: warning}
+        annotations:
+          summary: "p95 prediction latency above 300 ms"
+
+  - name: segmentation-model-quality
+    rules:
+      - alert: DataDriftDetected
+        expr: seg_data_drift_share{job="drift-job"} >= 0.34
+        for: 5m
+        labels: {severity: warning}
+        annotations:
+          summary: "At least one RFM feature drifted (PSI >= 0.2) - consider retraining"
+
+      - alert: ClusterShareShift
+        expr: seg_cluster_share_psi{job="drift-job"} >= 0.2
+        for: 5m
+        labels: {severity: warning}
+        annotations:
+          summary: "Segment proportions shifted a lot versus training data"
+
+      - alert: DistanceToCentroidGrowing
+        expr: histogram_quantile(0.95, sum by (le) (rate(seg_distance_to_centroid_bucket[1h]))) > 5
+        for: 1h
+        labels: {severity: warning}
+        annotations:
+          summary: "Customers are landing far from their centroid (KMeans champion only)"

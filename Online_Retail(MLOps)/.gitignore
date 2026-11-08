@@ -1,0 +1,26 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# local MLflow stores
+mlflow.db
+mlflow_smoke.db
+mlruns/
+mlartifacts/
+
+# data is tracked by DVC, not git (DVC adds the exact .gitignore entries for its outputs)
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/*.dvc
+reports/drift.json
+models/*
+!models/.gitkeep
+.env
+
+# deployment artifacts and secrets
+deploy/model/
+.env.*

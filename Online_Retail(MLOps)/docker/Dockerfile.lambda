@@ -1,0 +1,26 @@
+# API image for AWS Lambda (container image + Lambda Web Adapter).
+# Build from the project root AFTER running scripts/export_champion.py:
+#   docker build --platform linux/amd64 --provenance=false --sbom=false -f docker/Dockerfile.lambda -t segmentation-api .
+FROM public.ecr.aws/docker/library/python:3.13-slim
+
+# Lambda Web Adapter: lets Lambda talk to a normal web server (uvicorn) running inside the container.
+COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:1.1.0 /lambda-adapter /opt/extensions/lambda-adapter
+
+ENV PORT=8000 \
+    AWS_LWA_READINESS_CHECK_PATH=/live \
+    MODEL_PATH=/app/model \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Exact library versions the model was trained with, then the API's own dependencies.
+COPY deploy/model/requirements-model.txt ./requirements-model.txt
+COPY requirements-lambda.txt ./requirements-lambda.txt
+RUN pip install --no-cache-dir -r requirements-model.txt -r requirements-lambda.txt
+
+COPY src/__init__.py ./src/__init__.py
+COPY src/serving ./src/serving
+COPY deploy/model ./model
+
+CMD ["python", "-m", "uvicorn", "src.serving.app:app", "--host", "0.0.0.0", "--port", "8000"]

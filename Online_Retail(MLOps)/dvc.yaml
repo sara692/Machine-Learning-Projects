@@ -1,0 +1,46 @@
+stages:
+  prepare:
+    cmd: python src/data/prepare.py
+    deps:
+      - src/data/prepare.py
+      - data/raw/online_retail_II.csv
+    params:
+      - configs/params.yaml:
+          - prepare
+    outs:
+      - data/processed/clean.parquet
+
+  features:
+    cmd: python src/features/build_rfm.py
+    deps:
+      - src/features/build_rfm.py
+      - data/processed/clean.parquet
+    params:
+      - configs/params.yaml:
+          - features
+    outs:
+      - data/features/rfm.parquet
+
+  tune:
+    # needs the MLflow server running (see configs/tuning.yaml -> mlflow.tracking_uri)
+    cmd: python src/models/tune.py
+    deps:
+      - src/models/tune.py
+      - configs/tuning.yaml
+      - data/features/rfm.parquet
+    outs:
+      - reports/leaderboard.csv
+      - reports/cluster_sizes.csv
+    metrics:
+      - reports/metrics.json:
+          cache: false
+
+  evaluate:
+    cmd: python src/models/evaluate.py
+    deps:
+      - src/models/evaluate.py
+      - reports/metrics.json
+      - data/features/rfm.parquet
+    outs:
+      - reports/cluster_profile.csv
+      - reports/customer_segments.csv

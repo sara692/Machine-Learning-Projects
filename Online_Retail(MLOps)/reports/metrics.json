@@ -1,0 +1,14 @@
+{
+  "algorithm": "birch",
+  "params": {
+    "branching_factor": 50,
+    "n_clusters": 2,
+    "threshold": 1.0
+  },
+  "n_clusters": 2,
+  "noise_share": 0.0,
+  "min_cluster_share": 0.044062606328683224,
+  "silhouette": 0.45596477087233994,
+  "davies_bouldin": 0.6246378495119647,
+  "calinski_harabasz": 1533.8605659993505
+}

@@ -1,0 +1,49 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install
+        run: pip install -r requirements-dev.txt
+
+      - name: Lint
+        run: ruff check src tests scripts
+
+      - name: Unit + API tests
+        run: pytest -q
+
+      # Runs the whole pipeline on synthetic data (the real dataset is not stored in git).
+      - name: Smoke pipeline (synthetic data)
+        run: |
+          python scripts/make_synthetic_data.py --customers 600 --output data/raw/synthetic.csv
+          python src/data/prepare.py --input data/raw/synthetic.csv
+          python src/features/build_rfm.py
+          python src/models/tune.py --config configs/tuning_smoke.yaml
+          python src/models/evaluate.py --config configs/tuning_smoke.yaml
+
+      - name: Quality gate
+        run: python scripts/check_metrics.py --min-silhouette 0.20
+
+  build-images:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build API image
+        run: docker build -f docker/Dockerfile.api -t segmentation-api:${{ github.sha }} .
+      - name: Build MLflow image
+        run: docker build -f docker/Dockerfile.mlflow -t segmentation-mlflow:${{ github.sha }} docker

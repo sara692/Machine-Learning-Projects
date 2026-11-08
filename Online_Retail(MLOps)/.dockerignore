@@ -1,0 +1,19 @@
+# Keep the Docker build context small (the project root is the context). Do NOT ignore src, ui, deploy, docker or requirements*.
+.git
+.dvc
+.venv
+**/__pycache__
+.pytest_cache
+.ruff_cache
+data
+reports
+models
+mlruns
+mlartifacts
+*.db
+docs
+notebooks
+tests
+.github
+monitoring
+.env*
