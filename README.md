@@ -7,14 +7,18 @@ Welcome to my Machine Learning Projects portfolio! This repository contains a co
 
 ### 🏆 Featured Projects
 
-#### 🔍 [Project 1: Student Success ML Model(MLOps)](Student_Success_Prediction/)
+> Projects are grouped by learning type: **Supervised** (labelled data, the model learns to predict a known answer) and **Unsupervised** (no labels, the model finds structure on its own).
+
+## 🎯 Supervised Learning
+
+#### 🔍 [Project 1: Student Success ML Model(MLOps)](Supervised/Student_Success_Prediction_MLOps/)
 **Predictive modeling of student academic performance**
 - **Techniques**: Regression Analysis, Feature Engineering, Ensemble Methods, Cross-Validation
 - **Algorithms**: Random Forest, Linear Regression, KNN, Decision Trees, Gradient Boosting
 - **Domain**: Education Analytics
 - **Key Results**: Achieved 63% accuracy in predicting student performance
 
-#### 🏠 [Project 2: Housing Price Prediction(MLOps)](House_Price_Prediction/)
+#### 🏠 [Project 2: Housing Price Prediction(MLOps)](Supervised/House_Price_Prediction_MLOps/)
 **Real estate price forecasting using ensemble methods**
 - **Techniques**: Feature Engineering, Outlier Detection, Ensemble Learning, Hyperparameter Tuning
 - **Algorithms**: Random Forest, Stacking Regressor, Decision Trees, K-Means Clustering
@@ -22,7 +26,7 @@ Welcome to my Machine Learning Projects portfolio! This repository contains a co
 - **Key Results**: R² Score of 0.9234 with optimized Random Forest model
 - **Features**: Location clustering, Price tier analysis, Comprehensive EDA
 
-#### 🩺 [Project 3: Breast Cancer Classification(Notebook)](Breast_Cancer_Classification/)
+#### 🩺 [Project 3: Breast Cancer Classification(Notebook)](Supervised/Breast_Cancer_Classification_Notebook/)
 **Comparative study of classification algorithms for tumor diagnosis**
 - **Techniques**: Exploratory Data Analysis, Feature Scaling, Hyperparameter Tuning (GridSearchCV), Cross-Validation, Model Comparison
 - **Algorithms**: Logistic Regression, K-Nearest Neighbors, Support Vector Machine (RBF kernel), Decision Tree, Random Forest, Gradient Boosting, Gaussian Naive Bayes
@@ -30,13 +34,23 @@ Welcome to my Machine Learning Projects portfolio! This repository contains a co
 - **Key Results**: Benchmarked 7 classifiers on the Wisconsin Breast Cancer diagnostic dataset using accuracy, precision, recall, and F1-score, with confusion matrices and 5-fold cross-validation for robustness
 - **Features**: In-depth EDA (distributions, outliers, correlation heatmap), per-model theory explaining each algorithm's error-minimization strategy (gradient descent, SMO, greedy splitting, bagging, boosting, closed-form MLE), and an interview cheat-sheet summarizing all models
 
-#### 🩸 [Project 4: Diabetes Progression Prediction(Notebook)](Diabetes_Regression/)
+#### 🩸 [Project 4: Diabetes Progression Prediction(Notebook)](Supervised/Diabetes_Regression_Notebook/)
 **Comparative study of regression algorithms for disease progression forecasting**
 - **Techniques**: Exploratory Data Analysis, Feature Scaling, Hyperparameter Tuning (GridSearchCV), Cross-Validation, Model Comparison, Regularization (L1/L2)
 - **Algorithms**: Linear Regression, Ridge Regression, Lasso Regression, K-Nearest Neighbors, Support Vector Regression (RBF kernel), Decision Tree, Random Forest, Gradient Boosting
 - **Domain**: Medical / Healthcare Analytics
 - **Key Results**: Benchmarked 8 regressors on the scikit-learn Diabetes dataset using MAE, MSE, RMSE, and R², with residual diagnostics and 5-fold cross-validation for robustness
 - **Features**: In-depth EDA (target distribution, feature-vs-target relationships, correlation heatmap), per-model theory explaining each algorithm's error-minimization strategy (closed-form solutions, coordinate descent, SMO, greedy splitting, gradient descent in function space), and an interview cheat-sheet summarizing all models
+
+## 🧩 Unsupervised Learning
+
+#### 🛒 [Project 5: Online Retail Customer Segmentation(MLOps)](Unsupervised/Online_Retail_MLOps/)
+**RFM clustering of online retail customers into business segments** *(my first unsupervised project)*
+- **Techniques**: RFM Feature Engineering, Log Transformation + Scaling, Clustering Algorithm Comparison, Hyperparameter Tuning (grid search), Cluster Validation, Data Drift Detection
+- **Algorithms**: K-Means, Gaussian Mixture, BIRCH, Agglomerative Clustering, DBSCAN
+- **Domain**: Retail / Customer Analytics
+- **Key Results**: Compared 5 clustering algorithms with tuned parameters on the Online Retail II dataset (about 1.07M transactions) using Silhouette, Davies-Bouldin and Calinski-Harabasz scores; the best model is registered as the champion and served through an API and a UI
+- **MLOps**: DVC pipeline, MLflow experiment tracking and model registry, FastAPI service, Streamlit app, Prometheus + Grafana monitoring, PSI/KS drift detection, Docker Compose, GitHub Actions CI
 
 ### 📂 Additional Projects
 *(More projects to be added as portfolio expands)*
