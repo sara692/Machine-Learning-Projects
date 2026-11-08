@@ -1,4 +1,4 @@
-# 🏠 House Price Prediction: End-to-End MLOps Project
+# 🏠 House Price Prediction(MLOps)
 
 > From a Jupyter notebook to a **packaged, tracked, containerized and monitored** machine learning service.
 
